@@ -14,6 +14,8 @@ If there is no duplicate, output -1
 
 */
 
+// We have 2 ways to solve this question
+
 int Solution::repeatedNumber(const vector<int> &A) {
     // Do not write main() function.
     // Do not read input, instead use the arguments to the function.
@@ -35,4 +37,20 @@ int Solution::repeatedNumber(const vector<int> &A) {
   if(slow==0) return -1;
   return slow;
 
+}
+
+
+// way 2
+
+
+int Solution::repeatedNumber(const vector<int> &A) {
+    int n=A.size();
+    int arr[n+10]={0};
+    for(int i=0;i<n;i++){
+        arr[A[i]]++;
+        if(arr[A[i]]>1){
+            return A[i];
+        }
+    }
+    return -1;
 }
