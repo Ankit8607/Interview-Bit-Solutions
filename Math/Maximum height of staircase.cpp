@@ -42,7 +42,15 @@ Output 2:
  
 */
 
+// samrt way
 
+int Solution::solve(int a) {
+    int g=sqrt(2*a);
+    return (2*a>=(g*(g+1))?g:g-1);
+}
+
+
+// other way
 
 int Solution::solve(int A) {
     int ans=0;
