@@ -47,14 +47,6 @@ Both of them are not divisible by 60.
 
 */
 
-// smart way
-
-int Solution::solve(int a) {
-    int g=sqrt(2*a);
-    return (2*a>=(g*(g+1))?g:g-1);
-}
-
-// other way
 
 int Solution::divisibleBy60(vector<int> &A) {
     if(A.size()==1 and A[0]==0) return 1;
