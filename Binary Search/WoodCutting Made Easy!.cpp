@@ -96,3 +96,26 @@ int Solution::solve(vector<int> &A, int B) {
     }
     return ans;
 }
+
+
+
+
+// other interseting way
+
+
+typedef long long ll;
+int Solution::solve(vector<int> &A, int B) {
+    ll i=0;
+    ll wood=0;
+    ll maxE=*max_element(A.begin(),A.end());
+    vector<int> h(maxE+2,0);
+    ll l=A.size();
+    for(int a=0;a<l;a++)
+    h[A[a]]++;
+    
+    for(i=maxE;i>=0 && wood<B;i--){
+        h[i]+=h[i+1];
+        wood+=h[i];
+    }
+    return i;
+}
