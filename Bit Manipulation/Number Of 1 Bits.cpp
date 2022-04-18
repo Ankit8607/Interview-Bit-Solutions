@@ -31,6 +31,15 @@ Explaination1:
 
 */
 
+// Smart way
+
+int Solution::numSetBits(unsigned int A) {
+    return __builtin_popcount(A);
+}
+
+
+
+// mine way
 
 int Solution::numSetBits(unsigned int A) {
     int ans=0;
