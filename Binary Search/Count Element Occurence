@@ -8,6 +8,7 @@ Given [5, 7, 7, 8, 8, 10] and target value 8,
 return 2.
 */
 
+
 int Solution::findCount(const vector<int> &A, int B) {
     // Do not write main() function.
     // Do not read input, instead use the arguments to the function.
