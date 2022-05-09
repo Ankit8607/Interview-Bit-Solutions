@@ -70,12 +70,11 @@ Explanation 2:
 
 
 int Solution::solve(vector<vector<int> > &A) {
-    for(int i=0;i<A.size();i++) reverse(A[i].begin(),A[i].end());
-    sort(A.begin(),A.end());
-    for(int i=0;i<A.size();i++) reverse(A[i].begin(),A[i].end());
+    sort(A.begin(),A.end(),[] (const auto &x, const auto &y) { return x[1] < y[1]; });
     int ans=1,last=A[0][1];
     for(int i=1;i<A.size();i++){
         if(last<A[i][0]) ans++,last=A[i][1];
     }
     return ans;
 }
+
