@@ -36,26 +36,43 @@ A height balanced BST  :
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
- 
- TreeNode *fun(int l,int r,vector<int>&arr){
-     if(l>r) return NULL;
+
+ TreeNode *fun(ListNode *head){
+     if(!head ) return NULL;
      
-     int mid=(l+r)/2;
-     TreeNode *root=new TreeNode(arr[mid]);
-     root->left=fun(l,mid-1,arr);
-     root->right=fun(mid+1,r,arr);
-     return root;
+    ListNode *prev=NULL,*slow=head,*fast=head;
+    while(fast and fast->next){
+        prev=slow;
+        slow=slow->next;
+        fast=fast->next->next;
+    }
+    TreeNode *root=new TreeNode(slow->val);
+    if(prev) prev->next=NULL;
+    root->left=(head!=slow?fun(head):NULL);
+    root->right=fun(slow->next);
+    return root;
  }
  
 TreeNode* Solution::sortedListToBST(ListNode* A) {
-    // Do not write main() function.
-    // Do not read input, instead use the arguments to the function.
-    // Do not print the output, instead return values as specified
-    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
-    vector<int>arr;
-    while(A){
-        arr.push_back(A->val);
-        A=A->next;
-    }
-    return fun(0,arr.size()-1,arr);
+    return fun(A);
 }
+
+
+//  TreeNode *fun(int l,int r,vector<int>&arr){
+//      if(l>r) return NULL;
+     
+//      int mid=(l+r)/2;
+//      TreeNode *root=new TreeNode(arr[mid]);
+//      root->left=fun(l,mid-1,arr);
+//      root->right=fun(mid+1,r,arr);
+//      return root;
+//  }
+ 
+// TreeNode* Solution::sortedListToBST(ListNode* A) {
+//     vector<int>arr;
+//     while(A){
+//         arr.push_back(A->val);
+//         A=A->next;
+//     }
+//     return fun(0,arr.size()-1,arr);
+// }
