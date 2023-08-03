@@ -8,7 +8,7 @@ string Solution::solve(string A) {
         if(arr[i-'a']){
             ans+=i+to_string(arr[i-'a']);
             arr[i-'a']=0;
-        }
+         }
     }
     return ans;
 }
